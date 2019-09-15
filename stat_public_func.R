@@ -1,5 +1,7 @@
 ###################################
-# title: "Statistical Functions"
+# Title   : "Statistical Functions"
+# Author  : Harper
+# Release : 20190915
 ###################################
 
 # FUNCTION: Sample Statistics
