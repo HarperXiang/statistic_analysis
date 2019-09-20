@@ -75,14 +75,14 @@ t_Mean_run <- function(sample, h0_u=0, tailed=2, direction=1) {
   dis_mean <- dis_Mean(sample)
   t_t <- (dis_mean$u - h0_u) / dis_mean$se
   if (tailed==2) { # Two-tailed
-    t_p <- 2 * pt(abs(t_t), dis_diff$df, lower.tail=FALSE)
+    t_p <- 2 * pt(abs(t_t), dis_mean$df, lower.tail=FALSE)
   } else {         # One-tailed
     if (direction==1) {         # positive direction
-      t_p <- pt(t_t, dis_diff$df, lower.tail=FALSE)
+      t_p <- pt(t_t, dis_mean$df, lower.tail=FALSE)
     } else if (direction==-1) { # negative direction
-      t_p <- pt(t_t, dis_diff$df, lower.tail=TRUE)
+      t_p <- pt(t_t, dis_mean$df, lower.tail=TRUE)
     } else {                    # either positive or negative direction
-      t_p <- pt(abs(t_t), dis_diff$df, lower.tail=FALSE)
+      t_p <- pt(abs(t_t), dis_mean$df, lower.tail=FALSE)
     }
   }
   # return t-test result and the sampling distribution parameters
